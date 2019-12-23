@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+    <h4 class="center">{{ chapter.title|safe }}</h4>
+
+    <div class="entry-content">
+        {% autoescape off %}
+            {{ chapter.body }}
+        {% endautoescape off %}
+
+    </div>
+
+        <div class="row"></div>
+
+            <div class="row">
+            <div class="center">
+                <a class="waves-effect waves-light btn-large" href="{% url 'course' %}">Go back!</a>
+                <a class="waves-effect waves-light btn-large" href="/course/Questionnaire/{{ chapter_id }}/">Take Test!</a>
+            </div>
+        </div>
+
+
+{% endblock %}
+

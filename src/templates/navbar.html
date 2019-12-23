@@ -1,0 +1,21 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><i class="material-icons">school</i>Code School</a>
+
+        {% block nav %}
+        <ul class="right hide-on-med-and-down">
+            <li {% if 'course' in view.breadcrumbs %}class="active"{% endif %}><a href={% url 'course' %}><i class="material-icons left">code</i>Course</a></li>
+            <li {% if 'contact' in view.breadcrumbs %}class="active"{% endif %}><a href={% url 'contact' %}><i class="material-icons left">mail</i>Contact</a></li>
+            <li {% if 'help' in view.breadcrumbs %}class="active"{% endif %}><a href={% url 'help' %}><i class="material-icons left">help</i>Help</a></li>
+
+            {% if user.is_authenticated%}
+                <li><a href={% url 'profile' %}><i class="material-icons left">dashboard</i>Profile</a></li>
+                <li><a href={% url 'logout' %}><i class="material-icons left">directions_run</i>Logout</a></li>
+            {% else %}
+                <li {% if 'login' in view.breadcrumbs %}class="active"{% endif %}><a href={% url 'login' %}><i class="material-icons left">fingerprint</i>Login</a></li>
+                <li {% if 'register' in view.breadcrumbs %}class="active"{% endif %}><a href="{% url 'register' %}"><i class="material-icons left">create</i>Register</a></li>
+            {% endif %}
+        </ul>
+        {% endblock %}
+    </div>
+</nav>

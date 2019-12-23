@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+    <h4 class="center">Python 3: From zero to hero</h4>
+
+
+    <div class="container">
+        <div class="divider"></div>
+
+        <h5 class="center">Course Overview</h5>
+        <div class="row"></div>
+
+
+        {% for chapter in chapters %}
+
+            <div class="row">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper center">
+                        <div class="col s4">
+                            <img src="{{ chapter.image.url }}" alt="" style="height:150px;" class="responsive-img">
+                        </div>
+                        <div class="col s4">
+                            <h6>{{ chapter.title }}</h6>
+                        </div>
+                        <div class="col s4">
+                        <span class="black-text">
+                            <p><b>Description</b><br> {{ chapter.description }}</p>
+                        </span>
+                            <a class="waves-effect waves-light btn-small" href="/course/chapter/{{ chapter.id }}/">Take me there!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row"></div>
+
+
+        {% endfor %}
+
+        </div>
+
+{% endblock %}

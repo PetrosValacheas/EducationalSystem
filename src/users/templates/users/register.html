@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="container">
+
+        <h2 class="center-align">Create an Account</h2>
+        <div>
+            <p class="center-align">You’ll need an account to get to your courses</p>
+        </div>
+
+        <div class="divider"></div>
+        <div class="row"></div>
+
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="row">
+                    <div class="center">
+                        <p>
+                            <label>
+                                <input id="indeterminate-checkbox" type="checkbox"/>
+                                <span>Agree to Terms of Use</span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+                <div class="center">
+                    <button class="btn waves-effect waves-light" type="submit">Register
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                </small>
+            </div>
+        </div>
+        </form>
+
+
+
+    <div class="divider"></div>
+    <div class="row"></div>
+
+
+    </div>
+
+    </div>
+
+
+{% endblock %}
